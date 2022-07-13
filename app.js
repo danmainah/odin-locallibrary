@@ -1,20 +1,23 @@
-var createError = require('http-errors');
-var express = require('express');
+const createError = require('http-errors');
+const express = require('express');
 //Set up mongoose connection
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://odin2022:OSJBAID2Cqa5Klkd@cluster0.yglyc.mongodb.net/?retryWrites=true&w=majority';
+const mongoose = require('mongoose');
+const mongoDB = 'mongodb+srv://odin2022:hL6dd4_25dCDxa@cluster0.yglyc.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser")
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+app.use(bodyParser.urlencoded({ extended: true }));
+const logger = require('morgan');
 
-var app = express();
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
