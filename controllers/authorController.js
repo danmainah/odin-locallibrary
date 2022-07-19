@@ -49,7 +49,6 @@ exports.author_create_get = function(req, res, next) {
 
 
 // Handle Author create on POST.
-// Handle Author create on POST.
 exports.author_create_post = [
 
     // Validate and sanitize fields.
